@@ -34,11 +34,13 @@ A sklearn Logistic Regression model is then used for the above classification ta
 Hyperdrive was used to identify the best hyperparameters since it randomly draws parameter from the available options and continues until it hits its early stopping policy or runs out of options.
 
 **What are the benefits of the parameter sampler you chose?**
+
 Random Parameter Sampling was used because it is much less time consuming and the accuracy obtained is comparable to other parameter sampling techniques (like Grid Sampling).
 
 The regularization strength (C) was uniformly chosen between 0 and 1 and maximum number of iterations were randomly selected between 50 and 100.
 
 **What are the benefits of the early stopping policy you chose?**
+
 Bandit Policy was used for early stopping. It is based on evaluation interval and slack factor. Bandit policy only keeps the best performing runs that are within the allowed slack factor and automatically terminate runs that are not producing good results.
 
 ## AutoML
@@ -67,9 +69,24 @@ Each of these 10 models were a combination of:
 ## Pipeline comparison
 **Compare the two models and their performance. What are the differences in accuracy? In architecture? If there was a difference, why do you think there was one?**
 
+The VotingEnsemble model which was obtained from Azure AutoML approach achieved an accuracy of 91.69%.
+
+The Scikit-learn Logistic Regression model (using HyperDrive) obtained an accuracy of 91.36%.
+
+The AutoML approach was able to find better model because of its ability to evaluate different algorithms as well as using ensemble methods to combine differnet models to find the best robust and accurate model.
+
+On the other hand, the HyperDrive approach was solely trying to find the best Logistic Regression model with random search on available parameter values.
+
 ## Future work
 **What are some areas of improvement for future experiments? Why might these improvements help the model?**
 
+One major area where future experiments can be improved is by trying to solve the data balance issues considering the balanced accuracy using AutoML approach was 74.1%. In current case, the model has high accuracy for predicting the majority class but not the minority class.
+
+One approach might be to have different primary target metric like AUC, or f1-score. 
+Other approach can be different data augmentation techniques to make sure that the data balance problem is minimal.
+
+
+
 ## Proof of cluster clean up
-**If you did not delete your compute cluster in the code, please complete this section. Otherwise, delete this section.**
-**Image of cluster marked for deletion**
+
+I ran the code for cleaning up the cluster.
