@@ -6,7 +6,12 @@ In this project, we build and optimize an Azure ML pipeline using the Python SDK
 This model is then compared to an Azure AutoML run.
 
 ## Summary
-**In 1-2 sentences, explain the problem statement: e.g "This dataset contains data about... we seek to predict..."**
+This dataset is related to direct marketing campaigns of a banking institution. The task is to predict if the individual will subscribe to the bank service (bank term deposit). It's a classification task.
+
+Two approaches were used to find the solution:
+1) A standard Scikit-learn Logistic Regression model whose hyperparameters were optimized using HyperDrive.
+2) Using Azure AutoML Approach.
+
 
 **In 1-2 sentences, explain the solution: e.g. "The best performing model was a ..."**
 
